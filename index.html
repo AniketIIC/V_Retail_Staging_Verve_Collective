@@ -9,10 +9,21 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
-    <script
-      id="vretail-script"
-      data-vretail-project-id="PR-RwhRLmoJboA8qlrr0NZqYStKD"
-      src="https://collab-staging.core.vretail.space/vretail-collab.umd.js"
-    ></script>
+    <script>
+      (function () {
+        const version = crypto.randomUUID();
+        const s = document.createElement("script");
+        s.src =
+          "https://collab-staging.core.vretail.space/vretail-collab.umd.js?v=" +
+          version;
+        s.async = true;
+        s.id = "vretail-script";
+        s.setAttribute(
+          "data-vretail-project-id",
+          "PR-RwhRLmoJboA8qlrr0NZqYStKD"
+        );
+        document.head.appendChild(s);
+      })();
+    </script>
   </body>
 </html>
